@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>PermissionsAdd}">
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="frmAddPermission">
+				<f:content>
+					<Label text="{i18n>divisionLbl}"/>
+					<ComboBox items="{divModel>/results}" id="inpIdDiv"   selectedKey="{frmAddPermissions>/divisionId}">
+						
+						<core:Item key="{divModel>divId}" text="{divModel>descriptionExt}"/>
+					
+					</ComboBox>
+					<!--<Input xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
+						xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="inpIdDiv" value="{frmAddPermissions>/divisionId}"
+						editable="true" cd:w5g.dt.context="/PERIODS"/>-->
+					<Label xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m" text="{i18n>areaLbl}" id="label2"/>
+					<ComboBox items="{areaModel>/results}" id="inpIdArea"  selectedKey="{frmAddPermissions>/areaId}">
+					<items>
+						<core:Item key="{areaModel>areaId}" text="{areaModel>descriptionExt}"/>
+						</items>
+					</ComboBox>
+					<!--<Input xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
+						xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="inpIdArea" value="{frmAddPermissions>/areaId}"
+						editable="true" cd:w5g.dt.context="/PERIODS"/>-->
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btnConfirm" type="Accept" icon="sap-icon://accept" press="addNewPermission"/>
+		</beginButton>
+		<endButton>
+			<Button id="btnCancel" type="Reject" icon="sap-icon://sys-cancel-2" press="closeExclusion"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

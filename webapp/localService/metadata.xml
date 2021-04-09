@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+			<meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+			<script id="sap-ui-bootstrap" type="text/javascript" src="/sap/ui5/1/resources/sap-ui-core.js" data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-libs="sap.ui.core,sap.ui.commons,sap.ui.ux3,sap.ui.table,sap.m" data-sap-ui-resourceroots='{ "ui.login": "./ui/login/" }'>
+Error: no source code supplied to jspretty!
+			</script>
+			<script type="text/javascript" src="/sap/ui5/1/resources/jquery-sap.js"></script>
+		</head>
+		<script>
+var loginComponent = new sap.ui.core.ComponentContainer("ui.login", {
+	name: "ui.login"
+});
+loginComponent.placeAt("content");
+		</script>
+		<header class="sapUiSraBrandingBar sapThemeBrand-asBackgroundColor"/>
+		<body class="sapUiBody" id="content" style="overflow:hidden"/>
+		<footer>
+			<div class="sapUiSraFooter">
+				<div class="sapUiSraLoginLogo">
+					<img src="/sap/hana/xs/formLogin/images/sap.png" width="64"></div>
+					<div class="sapUiSraLoginCopyright"></div>
+				</div>
+			</footer>
+		</html>

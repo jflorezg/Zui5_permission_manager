@@ -1,0 +1,74 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/SCI",
+      "target": {
+        "type": "destination",
+        "name": "SAP_Identity_CLONING",
+        "entryPath": "/service/scim/Users"
+      },
+      "description": "SAP Identity destination"
+    },
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/pwdchangerTest",
+      "target": {
+        "type": "destination",
+        "name": "pwdchangerTest"
+      },
+      "description": "pwdchangerTest"
+    },
+    {
+      "path": "/successfactors_T2",
+      "target": {
+        "type": "destination",
+        "name": "successfactors_T2"
+      },
+      "description": "successfactors_T2"
+    },
+    {
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi"
+      }
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

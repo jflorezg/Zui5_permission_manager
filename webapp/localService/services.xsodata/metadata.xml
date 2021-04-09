@@ -1,0 +1,30 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="pwdChangerbk.services">
+			<EntityType Name="DIVISIONSType">
+				<Key><PropertyRef Name="divId"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false"/><Property Name="divId" Type="Edm.String" Nullable="false" MaxLength="15"/><Property Name="descriptionInt" Type="Edm.String" MaxLength="200"/><Property Name="descriptionExt" Type="Edm.String" MaxLength="200"/><Property Name="legalId" Type="Edm.String" MaxLength="15"/></EntityType>
+			<EntityType Name="AREASType">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false"/><Property Name="areaId" Type="Edm.String" MaxLength="15"/><Property Name="descriptionInt" Type="Edm.String" MaxLength="200"/><Property Name="descriptionExt" Type="Edm.String" MaxLength="200"/><Property Name="divId" Type="Edm.String" MaxLength="15"/></EntityType>
+			<EntityType Name="INSERT_AREAType">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false"/><Property Name="userId" Type="Edm.String" MaxLength="15"/><Property Name="divId" Type="Edm.String" MaxLength="15"/><Property Name="areaId" Type="Edm.String" MaxLength="15"/></EntityType>
+			<EntityType Name="INSERT_DIVType">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false"/><Property Name="userId" Type="Edm.String" MaxLength="15"/><Property Name="divId" Type="Edm.String" MaxLength="15"/><Property Name="areaId" Type="Edm.String" MaxLength="15"/></EntityType>
+			<EntityType Name="PERMISSIONSAREAType">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false"/><Property Name="userId" Type="Edm.String" MaxLength="15"/><Property Name="divId" Type="Edm.String" MaxLength="15"/><Property Name="areaId" Type="Edm.String" MaxLength="15"/><NavigationProperty Name="Areas" Relationship="pwdChangerbk.services.areaIdType" FromRole="PERMISSIONSAREAPrincipal" ToRole="AREASDependent"/><NavigationProperty Name="Division" Relationship="pwdChangerbk.services.divIdsType" FromRole="PERMISSIONSAREAPrincipal"
+					ToRole="DIVISIONSDependent"/></EntityType>
+			<EntityType Name="PERMISSIONSType">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int32" Nullable="false"/><Property Name="userId" Type="Edm.String" MaxLength="15"/><Property Name="divId" Type="Edm.String" MaxLength="15"/><Property Name="areaId" Type="Edm.String" MaxLength="15"/><NavigationProperty Name="Division" Relationship="pwdChangerbk.services.divIdType" FromRole="PERMISSIONSPrincipal"
+					ToRole="DIVISIONSDependent"/></EntityType>
+			<Association Name="areaIdType"><End Type="pwdChangerbk.services.PERMISSIONSAREAType" Role="PERMISSIONSAREAPrincipal" Multiplicity="*"/><End Type="pwdChangerbk.services.AREASType" Role="AREASDependent" Multiplicity="1"/></Association>
+			<Association Name="divIdsType"><End Type="pwdChangerbk.services.PERMISSIONSAREAType" Role="PERMISSIONSAREAPrincipal" Multiplicity="*"/><End Type="pwdChangerbk.services.DIVISIONSType" Role="DIVISIONSDependent" Multiplicity="1"/></Association>
+			<Association Name="divIdType"><End Type="pwdChangerbk.services.PERMISSIONSType" Role="PERMISSIONSPrincipal" Multiplicity="*"/><End Type="pwdChangerbk.services.DIVISIONSType" Role="DIVISIONSDependent" Multiplicity="1"/></Association>
+			<EntityContainer Name="services" m:IsDefaultEntityContainer="true"><EntitySet Name="DIVISIONS" EntityType="pwdChangerbk.services.DIVISIONSType"/><EntitySet Name="AREAS" EntityType="pwdChangerbk.services.AREASType"/><EntitySet Name="INSERT_AREA" EntityType="pwdChangerbk.services.INSERT_AREAType"/><EntitySet Name="INSERT_DIV" EntityType="pwdChangerbk.services.INSERT_DIVType"/><EntitySet Name="PERMISSIONSAREA" EntityType="pwdChangerbk.services.PERMISSIONSAREAType"/><EntitySet Name="PERMISSIONS" EntityType="pwdChangerbk.services.PERMISSIONSType"/>
+				<AssociationSet Name="areaId" Association="pwdChangerbk.services.areaIdType"><End Role="PERMISSIONSAREAPrincipal" EntitySet="PERMISSIONSAREA"/><End Role="AREASDependent" EntitySet="AREAS"/></AssociationSet>
+				<AssociationSet Name="divIds" Association="pwdChangerbk.services.divIdsType"><End Role="PERMISSIONSAREAPrincipal" EntitySet="PERMISSIONSAREA"/><End Role="DIVISIONSDependent" EntitySet="DIVISIONS"/></AssociationSet>
+				<AssociationSet Name="divId" Association="pwdChangerbk.services.divIdType"><End Role="PERMISSIONSPrincipal" EntitySet="PERMISSIONS"/><End Role="DIVISIONSDependent" EntitySet="DIVISIONS"/></AssociationSet>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

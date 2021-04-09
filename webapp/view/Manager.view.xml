@@ -1,0 +1,97 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+controllerName="com.epiuse.permission_manager.Zui5_permission_manager.controller.Manager" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<VBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="sapUiSmallMargin" width="100%" id="vbox0" alignContent="Start" direction="Column" justifyContent="End">
+							<items>
+								<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" id="filterForm" layout="ResponsiveGridLayout" width="70%">
+									<sap.ui.layout.form:content>
+										<VBox width="90%" direction="Column" alignContent="Center" id="vbox1">
+											<layoutData>
+												<l:GridData span="XL4 L4 M3 S4"/>
+											</layoutData>
+											<items>
+												<Label text="{i18n>empIdLbl}" width="100%" id="label0"/>
+												<Input id="empId" />
+											</items>
+										</VBox>
+										<!--<VBox width="90%" direction="Column" id="vbox2">
+											<layoutData>
+												<l:GridData span="XL4 L4 M3 S4"/>
+											</layoutData>
+											<items>
+												<Label text="{i18n>empNameLbl}" width="100%" id="label1"/>
+												<Input id="empName" value="{EmployeeId}"/>
+											</items>
+										</VBox>-->
+										<Button xmlns="sap.m" text="{i18n>SearchButton}" id="buttonSearch" activeIcon="sap-icon://search" icon="sap-icon://search" width="160px" press="searchEmployee"/>
+									</sap.ui.layout.form:content>
+								</sap.ui.layout.form:SimpleForm>
+								<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" id="lblsForm" layout="ResponsiveGridLayout" width="70%">
+									<sap.ui.layout.form:content>
+										<Label text="{i18n>empIdLbl}" id="pwdLbl3" design="Bold"/>
+										<Text text=" " id="empIdLbl">
+											<layoutData>
+												<l:GridData span="XL4 L4 M3 S4"/>
+											</layoutData>
+										</Text>
+										<Label text="{i18n>empNameLbl}" id="pwdLbl4" design="Bold"/>
+										<Text text="" id="empNameLbl">
+											<layoutData>
+												<l:GridData span="XL4 L4 M3 S4"/>
+											</layoutData>
+										</Text>
+									</sap.ui.layout.form:content>
+								</sap.ui.layout.form:SimpleForm>
+								<Table noDataText="{i18n>noData}" id="table0" alternateRowColors="true" fixedLayout="true" width="97%" items="{ path: '/tPermissions' }">
+									<infoToolbar>
+										<Toolbar active="true" design="Transparent">
+											<Label design="Bold" text="Permisos"/>
+											<ToolbarSpacer id="spacer0"/>
+											<Button xmlns="sap.m" text="{i18n>addPermission}" id="buttonPermission" type="Ghost" icon="sap-icon://permission" press="onAddPermission"/>
+											
+											
+										<content/>
+										</Toolbar>
+									</infoToolbar>
+									<columns>
+										<Column id="column0">
+											<header>
+												<Label text="{i18n>divisionLbl}" id="label0_1564458642162"/>
+											</header>
+										</Column>
+										<Column id="column1">
+											<header>
+												<Label text="{i18n>areaLbl}" id="label1_1564458642162"/>
+											</header>
+										</Column>
+										<Column id="column2">
+											<header>
+												<Label text="{i18n>actionLbl}" id="label2_1564458642162"/>
+											</header>
+										</Column>
+									
+									</columns>
+									<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										
+										<Text text="{divId}"/>
+										<Text text="{areaId}"/>
+										<Button text="{i18n>delete}" app:emp="{userId}" app:div="{divId}" app:area="{areaId}" app:idpermission="{Id}" press="deletePermission"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+								</Table>
+							
+							</items>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
